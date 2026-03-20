@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEV WEB & APP // Portfolio Système</title>
+  <meta
+    name="description"
+    content="Portfolio futuriste de développeur web et application, spécialisé en R&D IA avec XpertVisio."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="scanline-overlay" aria-hidden="true"></div>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise-layer" id="noiseLayer" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor-ring"></span>
+      <span class="cursor-dot"></span>
+    </div>
+
+    <aside class="social-rail">
+      <div class="rail-head">
+        <span class="system-tag">[LINKS]</span>
+        <span class="rail-id">// EXTERNAL</span>
+      </div>
+      <nav class="rail-links" aria-label="Liens externes">
+        <a href="https://github.com/matheo2?tab=repositories" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/matheo-houpert-094a30214/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </aside>
+
+    <main class="site-frame">
+      <header class="topbar">
+        <div class="topbar-block">
+          <span class="system-tag">[SYSTEM]</span>
+          <span class="topbar-copy">PORTFOLIO ACTIVE</span>
+        </div>
+        <div class="topbar-block">
+          <span class="topbar-copy">NODE // MÂCON</span>
+          <span class="status-led"></span>
+        </div>
+      </header>
+
+      <section class="hero panel reveal">
+        <div class="panel-header">
+          <span class="system-tag">[ENTRY_POINT]</span>
+          <span class="meta-text">SECTOR_01 // WEB APP INTERFACE</span>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">[WEB_APP_SEQUENCE]</p>
+            <h1 class="glitch-title" data-text="DEV WEB">DEV WEB</h1>
+            <h2 class="hero-subtitle">DÉVELOPPEUR WEB, APPLICATION &amp; R&amp;D IA</h2>
+            <p class="hero-text">
+              Je conçois des sites web, des applications sur mesure et des interfaces
+              métier orientées performance, clarté et usage concret, tout en menant
+              des travaux de R&amp;D IA avec XpertVisio.
+            </p>
+            <div class="hero-actions">
+              <a class="button-primary" href="#projects">VOIR MES PROJETS <span>→</span></a>
+            </div>
+            <div class="hero-data">
+              <div class="data-card">
+                <span class="data-label">[ROLE]</span>
+                <span class="data-value">WEB / APP / IA R&amp;D</span>
+              </div>
+              <div class="data-card">
+                <span class="data-label">[STATUS]</span>
+                <span class="data-value">EMBAUCHER CHEZ EMIOTECH</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="signal-core">
+              <div class="signal-ring signal-ring-a"></div>
+              <div class="signal-ring signal-ring-b"></div>
+              <div class="signal-grid"></div>
+              <div class="signal-cross signal-cross-x"></div>
+              <div class="signal-cross signal-cross-y"></div>
+              <div class="signal-node signal-node-a"></div>
+              <div class="signal-node signal-node-b"></div>
+              <div class="signal-node signal-node-c"></div>
+              <div class="signal-pulse"></div>
+              <div class="signal-caption">
+                <span>[VISUAL_CORE]</span>
+                <span>// WEB APP SIGNAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills panel reveal" id="skills">
+        <div class="panel-header">
+          <span class="system-tag">[DATA]</span>
+          <span class="meta-text">SECTOR_02 // CAPABILITIES</span>
+        </div>
+        <div class="section-head">
+          <h3>COMPÉTENCES ACTIVES</h3>
+          <p>Conception d'interfaces web, développement applicatif et intégration de briques IA dans des produits concrets.</p>
+        </div>
+        <div class="skills-panel">
+          <article class="skill-card">
+            <span class="skill-index">01</span>
+            <h4>[FRONTEND WEB]</h4>
+            <p>Interfaces modernes, intégration responsive et expériences fluides orientées produit.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-index">02</span>
+            <h4>[APPLICATIONS]</h4>
+            <p>Conception d'outils métier, dashboards et applications pensées pour un usage réel.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-index">03</span>
+            <h4>[BACKEND / API]</h4>
+            <p>Architecture logique, échanges de données, automatisation et connexions entre services.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-index">04</span>
+            <h4>[R&amp;D IA]</h4>
+            <p>Prototype, test et intégration de solutions IA dans des produits web et applicatifs.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-index">05</span>
+            <h4>[XPERTVISIO]</h4>
+            <p>Développement et évolution d'une plateforme mêlant vision intelligente, R&amp;D et usage terrain.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-showcase panel reveal" id="projects">
+        <div class="panel-header">
+          <span class="system-tag">[PROJECTS]</span>
+          <span class="meta-text">SECTOR_03 // ACCESS NODES</span>
+        </div>
+        <div class="project-layout">
+          <div class="project-copy">
+            <p class="eyebrow">[XpertVisio // LIVE NODE]</p>
+            <h3>XPERTVISIO ACCESS</h3>
+            <p class="project-text">Accès direct à la plateforme vidéo intelligente</p>
+            <p class="project-detail">
+              Projet de R&amp;D et de développement IA centré sur l'analyse vidéo, la
+              décision temps réel et l'exploitation d'une interface orientée terrain.
+            </p>
+            <div class="project-actions">
+              <a
+                class="button-primary"
+                href="https://xpertvisio.tech"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ACCEDER AU PROJET <span>↗</span>
+              </a>
+              <a class="button-secondary" href="#project-directory">VOIR LES ACCES</a>
+            </div>
+            <div class="access-strip" aria-label="Informations d'accès au projet">
+              <div class="access-row">
+                <span class="access-key">[URL]</span>
+                <span class="access-value">XpertVisio.tech</span>
+              </div>
+              <div class="access-row">
+                <span class="access-key">[ACCÈS]</span>
+                <span class="access-value">LIVE / EXTERNAL LINK</span>
+              </div>
+              <div class="access-row">
+                <span class="access-key">[USAGE]</span>
+                <span class="access-value">VISION / CAPTURE / WATCH TUTORIALS / READ DOCS</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-panel">
+            <div class="metric-block">
+              <span class="metric-label">[PIPELINE]</span>
+              <span class="metric-value">VISION / EDGE / CONTROL</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">[MODE]</span>
+              <span class="metric-value">LOW LATENCY</span>
+            </div>
+            <div class="metric-block">
+              <span class="metric-label">[STACK]</span>
+              <span class="metric-value">C++ + LINUX</span>
+            </div>
+            <div class="project-diagram" aria-hidden="true">
+              <span class="diagram-node">CAM_01</span>
+              <span class="diagram-node">CORE_AI</span>
+              <span class="diagram-node">MOD_04</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-directory" id="project-directory">
+          <div class="section-head">
+            <h3>ACCÈS PROJETS</h3>
+            <p>Une zone dédiée pour consulter les builds en ligne et préparer l'ajout des prochains projets.</p>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-card-head">
+                <span class="project-badge">[LIVE]</span>
+                <span class="project-card-index">NODE_01</span>
+              </div>
+              <div class="project-card-copy">
+                <h4>XpertVisio</h4>
+                <p>Plateforme de vision intelligente avec traitement temps réel et logique d'exploitation terrain.</p>
+              </div>
+              <div class="project-card-meta">
+                <span>PYTHON + C++ + LINUX</span>
+                <span>XpertVisio.tech</span>
+              </div>
+              <a
+                class="button-secondary project-link"
+                href="https://xpertvisio.tech"
+                target="_blank"
+                rel="noreferrer"
+              >
+                OUVRIR LE SITE
+              </a>
+            </article>
+
+            <article class="project-card project-card-placeholder" aria-label="Emplacement réservé à un prochain projet">
+              <div class="project-card-head">
+                <span class="project-badge">[NEXT]</span>
+                <span class="project-card-index">NODE_02</span>
+              </div>
+              <div class="project-card-copy">
+                <h4>PROCHAIN PROJET</h4>
+                <p>Emplacement prêt pour intégrer un nouvel aperçu, une démo ou un accès externe sans casser la DA actuelle.</p>
+              </div>
+              <div class="project-card-meta">
+                <span>READY FOR DEPLOYMENT</span>
+                <span>LINK PENDING</span>
+              </div>
+              <a class="button-secondary project-link" href="#footer">AJOUTER PLUS TARD</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about panel reveal" id="about">
+        <div class="panel-header">
+          <span class="system-tag">[SYSTEM_PROFILE]</span>
+          <span class="meta-text">SECTOR_04 // CONFIGURATION</span>
+        </div>
+        <div class="about-layout">
+          <div class="section-head">
+            <h3>PROFIL TECHNIQUE</h3>
+            <p>Un profil orienté produit, entre développement web, applications sur mesure et innovation IA.</p>
+          </div>
+          <div class="about-list">
+            <div class="about-row">
+              <span class="about-key">[POSITION]</span>
+              <span class="about-value">DEV WEB &amp; APPLICATION</span>
+            </div>
+            <div class="about-row">
+              <span class="about-key">[SPÉCIALITÉ]</span>
+              <span class="about-value">R&amp;D IA ET INTÉGRATION PRODUIT</span>
+            </div>
+            <div class="about-row">
+              <span class="about-key">[FOCUS]</span>
+              <span class="about-value">XPERTVISIO / AUTOMATISATION / INTERFACES MÉTIER</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer panel reveal" id="footer">
+        <div class="panel-header">
+          <span class="system-tag">[END_NODE]</span>
+          <span class="meta-text">SECTOR_05 // CONTACT SURFACE</span>
+        </div>
+        <div class="footer-copy">
+          <p>DEV WEB &amp; APP // R&amp;D IA // BUILD FOR REAL PRODUCTS</p>
+          <p class="footer-small">SIGNAL OPEN FOR COLLABORATION // 2026</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
