@@ -2,8 +2,13 @@ const revealNodes = document.querySelectorAll(".reveal");
 const glitchTitle = document.querySelector(".glitch-title");
 const noiseLayer = document.getElementById("noiseLayer");
 const cursor = document.getElementById("cursor");
-const interactiveSelectors = "a, button, .skill-card, .panel, .topbar";
+const detailModal = document.getElementById("detailModal");
+const detailModalContent = document.getElementById("detailModalContent");
+const detailTriggers = document.querySelectorAll("[data-modal-template]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const interactiveSelectors = "a, button, .project-card, .skill-pill, .modal-close, [data-close-modal], .panel, .topbar";
+
+let lastFocusedTrigger = null;
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -15,10 +20,7 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
         }
       });
     },
-    {
-      threshold: 0.18,
-      rootMargin: "0px 0px -8% 0px"
-    }
+    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
   );
 
   revealNodes.forEach((node) => revealObserver.observe(node));
@@ -34,9 +36,7 @@ function triggerGlitch() {
   }
 
   glitchTitle.classList.add("is-glitching");
-  window.setTimeout(() => {
-    glitchTitle.classList.remove("is-glitching");
-  }, 180);
+  window.setTimeout(() => glitchTitle.classList.remove("is-glitching"), 180);
 }
 
 if (glitchTitle && !prefersReducedMotion) {
@@ -49,7 +49,7 @@ function randomFlicker() {
     return;
   }
 
-  const targets = [...document.querySelectorAll(".panel, .topbar")];
+  const targets = [...document.querySelectorAll(".panel, .topbar, .detail-dialog")];
   const target = targets[Math.floor(Math.random() * targets.length)];
 
   if (!target) {
@@ -57,9 +57,7 @@ function randomFlicker() {
   }
 
   target.classList.add("is-flicker");
-  window.setTimeout(() => {
-    target.classList.remove("is-flicker");
-  }, 220);
+  window.setTimeout(() => target.classList.remove("is-flicker"), 220);
 }
 
 if (!prefersReducedMotion) {
@@ -80,9 +78,7 @@ function spawnNoiseGlyph() {
   glyph.style.animationDuration = `${7 + Math.random() * 6}s`;
   noiseLayer.appendChild(glyph);
 
-  window.setTimeout(() => {
-    glyph.remove();
-  }, 12000);
+  window.setTimeout(() => glyph.remove(), 12000);
 }
 
 if (!prefersReducedMotion) {
@@ -94,31 +90,88 @@ if (!prefersReducedMotion) {
 }
 
 if (cursor && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
-  const activateCursor = () => cursor.classList.add("is-visible");
-  const moveCursor = (event) => {
-    cursor.style.transform = `translate(${event.clientX - 18}px, ${event.clientY - 18}px)`;
-  };
-
   window.addEventListener("mousemove", (event) => {
-    activateCursor();
-    moveCursor(event);
+    cursor.classList.add("is-visible");
+    cursor.style.transform = `translate(${event.clientX - 18}px, ${event.clientY - 18}px)`;
   });
 
-  document.querySelectorAll(interactiveSelectors).forEach((item) => {
-    item.addEventListener("mouseenter", () => {
+  document.addEventListener("mouseover", (event) => {
+    if (event.target.closest(interactiveSelectors)) {
       cursor.classList.add("is-hovering");
-    });
+    }
+  });
 
-    item.addEventListener("mouseleave", () => {
+  document.addEventListener("mouseout", (event) => {
+    const related = event.relatedTarget;
+    if (!related || !related.closest(interactiveSelectors)) {
       cursor.classList.remove("is-hovering");
-    });
+    }
   });
 }
 
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden || prefersReducedMotion) {
+function closeModal() {
+  if (!detailModal) {
     return;
   }
 
-  triggerGlitch();
+  detailModal.classList.remove("is-open");
+  detailModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  if (detailModalContent) {
+    detailModalContent.innerHTML = "";
+  }
+
+  if (lastFocusedTrigger) {
+    lastFocusedTrigger.focus();
+    lastFocusedTrigger = null;
+  }
+}
+
+function openModal(templateId, trigger) {
+  if (!detailModal || !detailModalContent) {
+    return;
+  }
+
+  const template = document.getElementById(templateId);
+
+  if (!(template instanceof HTMLTemplateElement)) {
+    return;
+  }
+
+  detailModalContent.innerHTML = "";
+  detailModalContent.appendChild(template.content.cloneNode(true));
+  detailModal.classList.add("is-open");
+  detailModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  lastFocusedTrigger = trigger;
+
+  const closeButton = detailModal.querySelector(".modal-close");
+  if (closeButton) {
+    closeButton.focus();
+  }
+}
+
+detailTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => openModal(trigger.dataset.modalTemplate, trigger));
+});
+
+if (detailModal) {
+  detailModal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-close-modal]")) {
+      closeModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && detailModal?.classList.contains("is-open")) {
+    closeModal();
+  }
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && !prefersReducedMotion) {
+    triggerGlitch();
+  }
 });

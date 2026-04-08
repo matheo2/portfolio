@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de competences - Matheo Houpert</title>
+  <style>
+    :root { color-scheme: dark; --bg: #020302; --panel: rgba(5,8,5,.92); --line: rgba(191,255,0,.22); --text: #eff8d0; --text-dim: rgba(239,248,208,.72); --accent: #bfff00; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 2rem; background: var(--bg); color: var(--text); font-family: "IBM Plex Mono", monospace; }
+    main { max-width: 1100px; margin: 0 auto; border: 1px solid var(--line); background: var(--panel); padding: 1.5rem; }
+    h1 { margin: 0; font-family: "Chakra Petch", sans-serif; letter-spacing: .08em; font-size: clamp(2rem, 5vw, 3.2rem); }
+    p { color: var(--text-dim); line-height: 1.7; }
+    .meta { color: var(--accent); letter-spacing: .16em; font-size: .8rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    th, td { border: 1px solid var(--line); padding: .9rem; text-align: left; vertical-align: top; line-height: 1.6; }
+    th { color: var(--accent); background: rgba(191,255,0,.05); text-transform: uppercase; }
+    @media print { body { padding: 0; background: #fff; color: #111; } main { border: 0; background: #fff; max-width: none; padding: 0; } th, td { border-color: #999; } th { color: #000; background: #eee; } .meta { color: #000; } }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <h1>Tableau de competences</h1>
+    <p class="meta">MATHEO HOUPERT // DEVELOPPEUR WEB &amp; APPLICATION</p>
+    <p>Ce document reprend les competences mises en avant sur le site CV dans un format simple a conserver, imprimer ou exporter en PDF.</p>
+    <table>
+      <thead>
+        <tr><th>Competence</th><th>Contexte</th><th>Validation</th><th>Positionnement</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Frontend web</td><td>Interfaces publiques, dashboards, outils internes</td><td>Je con&ccedil;ois des interfaces lisibles, coherentes et orientees action.</td><td>Solide</td></tr>
+        <tr><td>Applications metier</td><td>Usage terrain, support a distance, formation</td><td>Je pars d&rsquo;un besoin operationnel et je construis des outils simples a prendre en main.</td><td>Solide</td></tr>
+        <tr><td>Backend &amp; API</td><td>Structuration des donnees, logique applicative</td><td>Je pense les flux et les couches techniques pour garder un produit maintenable.</td><td>En progression continue</td></tr>
+        <tr><td>R&amp;D IA</td><td>Veille, prototypes, aide contextuelle</td><td>Je teste des cas d&rsquo;usage utiles et j&rsquo;integre l&rsquo;IA quand elle cree une vraie valeur.</td><td>En progression forte</td></tr>
+        <tr><td>UX terrain</td><td>Contexte d&rsquo;urgence, information critique</td><td>Je con&ccedil;ois des ecrans axes comprehension rapide et reduction de friction.</td><td>Solide</td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
