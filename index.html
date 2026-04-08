@@ -15,8 +15,19 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      body.is-loading {
+        overflow: auto !important;
+      }
+
+      .portfolio-loader {
+        display: none !important;
+      }
+    </style>
+  </noscript>
 </head>
-<body>
+<body class="is-loading">
   <div class="app-shell">
     <div class="scanline-overlay" aria-hidden="true"></div>
     <div class="ambient-grid" aria-hidden="true"></div>
@@ -24,6 +35,31 @@
     <div class="cursor" id="cursor" aria-hidden="true">
       <span class="cursor-ring"></span>
       <span class="cursor-dot"></span>
+    </div>
+    <div class="portfolio-loader" id="portfolioLoader" role="status" aria-live="polite">
+      <div class="portfolio-loader__panel">
+        <div class="portfolio-loader__head">
+          <span class="system-tag">[BOOT_SEQUENCE]</span>
+          <span class="portfolio-loader__code">NODE // MATHEO.H</span>
+        </div>
+        <div class="portfolio-loader__body">
+          <p class="portfolio-loader__eyebrow">CV INTERFACE / EMIOTECH / XPERTVISIO</p>
+          <h2 class="portfolio-loader__title">INITIALISATION DU PORTFOLIO</h2>
+          <p class="portfolio-loader__text">
+            Synchronisation des projets, calibration de l&rsquo;interface et ouverture
+            du point d&rsquo;entree principal.
+          </p>
+          <div class="portfolio-loader__meter" aria-hidden="true">
+            <span class="portfolio-loader__bar"></span>
+          </div>
+          <div class="portfolio-loader__status" aria-hidden="true">
+            <span>SCANLINE</span>
+            <span>PROJECTS</span>
+            <span>SKILLS</span>
+            <span>WATCH</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <aside class="social-rail">

@@ -2,6 +2,7 @@ const revealNodes = document.querySelectorAll(".reveal");
 const glitchTitle = document.querySelector(".glitch-title");
 const noiseLayer = document.getElementById("noiseLayer");
 const cursor = document.getElementById("cursor");
+const portfolioLoader = document.getElementById("portfolioLoader");
 const detailModal = document.getElementById("detailModal");
 const detailModalContent = document.getElementById("detailModalContent");
 const detailTriggers = document.querySelectorAll("[data-modal-template]");
@@ -9,6 +10,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const interactiveSelectors = "a, button, .project-card, .skill-pill, .modal-close, [data-close-modal], .panel, .topbar";
 
 let lastFocusedTrigger = null;
+const loaderStartedAt = Date.now();
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -107,6 +109,31 @@ if (cursor && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matc
       cursor.classList.remove("is-hovering");
     }
   });
+}
+
+function finishLoader() {
+  if (!portfolioLoader || !document.body.classList.contains("is-loading")) {
+    return;
+  }
+
+  const minimumDisplay = prefersReducedMotion ? 450 : 2200;
+  const elapsed = Date.now() - loaderStartedAt;
+  const remaining = Math.max(0, minimumDisplay - elapsed);
+
+  window.setTimeout(() => {
+    document.body.classList.remove("is-loading");
+    window.setTimeout(() => {
+      portfolioLoader.remove();
+    }, 720);
+  }, remaining);
+}
+
+if (portfolioLoader) {
+  if (document.readyState === "complete") {
+    finishLoader();
+  } else {
+    window.addEventListener("load", finishLoader, { once: true });
+  }
 }
 
 function closeModal() {
