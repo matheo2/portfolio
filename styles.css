@@ -206,7 +206,7 @@ p {
 
 .site-frame {
   width: min(calc(100% - 126px), var(--content-max));
-  margin-left: 106px;
+  margin-left: max(106px, calc((100vw - var(--content-max)) / 2));
   padding: 1.25rem 0 4rem;
 }
 
