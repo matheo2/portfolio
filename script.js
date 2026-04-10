@@ -22,7 +22,7 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.06, rootMargin: "0px 0px -2% 0px" }
   );
 
   revealNodes.forEach((node) => revealObserver.observe(node));
